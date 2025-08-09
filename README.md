@@ -2,6 +2,8 @@
 
 This repo defines a standardized React + Vite + shadcn/ui setup. Use Yarn for all commands.
 
+![WARNING](https://img.shields.io/badge/WARNING-red?style=for-the-badge)
+
 > Warning: All developers must follow the instructions and standards in this document when contributing to this project. Code and PRs that do not comply will be requested for changes or rejected.
 
 ## Quick start (Yarn)
