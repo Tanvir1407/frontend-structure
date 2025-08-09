@@ -66,6 +66,16 @@ src/
 
 Note: This repo uses `src/main.jsx`. Adapt as needed but follow the intent above.
 
+## File naming conventions
+
+- Use PascalCase for React components and pages.
+- CRUD-style naming follows Action + Entity.
+	- GetAllUser: list all users
+	- DetailsUser: show a single user in detail
+	- UpdateUser: update an existing user
+- Apply the same pattern for other entities by replacing "User" with the entity name (e.g., GetAllProduct, DetailsProduct, UpdateProduct).
+
+
 ## Package management standards
 
 - Package manager: Yarn
