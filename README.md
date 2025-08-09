@@ -1,6 +1,6 @@
 # frontend-structure
 
-## Initialize on another computer (Yarn)
+## Initialize on your local machine (Yarn)
 
 To set up this project on a new machine using Yarn:
 
