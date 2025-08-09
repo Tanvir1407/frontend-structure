@@ -4,7 +4,19 @@ This repo defines a standardized React + Vite + shadcn/ui setup. Use Yarn for al
 
 ![WARNING](https://img.shields.io/badge/WARNING-red?style=for-the-badge)
 
-> Warning: All developers must follow the instructions and standards in this document when contributing to this project. Code and PRs that do not comply will be requested for changes or rejected.
+> Warning: All developers must adhere to the instructions and standards outlined in this document for all projects. Code and PRs that do not comply will be requested for changes or rejected.
+
+## Table of Contents
+
+- [Quick start (Yarn)](#quick-start-yarn)
+- [Standard project structure](#standard-project-structure)
+- [File naming conventions](#file-naming-conventions)
+- [JSX file export](#jsx-file-export)
+- [Team workflow notices](#team-workflow-notices)
+- [Recent work log](#recent-work-log)
+- [Package management standards](#package-management-standards)
+- [PDF generation standard](#pdf-generation-standard)
+- [Commands cheat‑sheet (Yarn)](#commands-cheat-sheet-yarn)
 
 ## Quick start (Yarn)
 
