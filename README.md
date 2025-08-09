@@ -2,6 +2,8 @@
 
 This repo defines a standardized React + Vite + shadcn/ui setup. Use Yarn for all commands.
 
+> Warning: All developers must follow the instructions and standards in this document when contributing to this project. Code and PRs that do not comply will be requested for changes or rejected.
+
 ## Quick start (Yarn)
 
 1) Clone & enter the project
@@ -37,22 +39,19 @@ src/
 ├─ components/                       # Reusable UI components
 │  ├─ ui/                            # shadcn/ui generated components (alias "ui")
 │  ├─ common/                        # Shared components
+│  ├─ pages/                         # All features components 
 │  ├─ layout/                        # Layout components (Header, Footer)
 │  └─ forms/                         # Form components
 ├─ config/                           # App configuration
 ├─ hooks/                            # Custom React hooks
 ├─ lib/
 │  └─ utils.js
-├─ pages/                            # Route views 
-├─ services/                         # Non-RTK services 
 ├─ store/                            # Redux Toolkit setup
 │  ├─ app/
 │  │  └─ store.js                    # Store configuration
 │  ├─ features/                      # Feature-based slices
 │  │  └─ auth/
 │  │     └─ authSlice.js
-│  ├─ routes/
-│  │  └─ ProtectedRoute.js           # Auth-guarded route wrapper
 │  └─ services/                      # RTK Query APIs
 │     ├─ api.js
 │     ├─ authApi.js
@@ -75,6 +74,29 @@ Note: This repo uses `src/main.jsx`. Adapt as needed but follow the intent above
 	- UpdateUser: update an existing user
 - Apply the same pattern for other entities by replacing "User" with the entity name (e.g., GetAllProduct, DetailsProduct, UpdateProduct).
 
+## JSX file export 
+- Default export should be a named function declaration in PascalCase.
+- Example:
+```jsx
+export default function Welcome() {
+	return <div>...</div>
+}
+```
+- Avoid anonymous default exports like `export default () => {}`.
+- One component per file; file name matches component name (e.g., `Welcome.jsx`).
+
+## Team workflow notices
+
+- Work log: When working on this existing project, append a brief summary of your last changes in this README under "Recent work log" with the date (YYYY-MM-DD) and your name.
+- Packages: Before adding any new package, you must first discuss with your Team Lead and get approval. After approval, pin an exact version and document the rationale in the PR description.
+
+## Recent work log
+
+Append new entries at the top in this format:
+
+```
+YYYY-MM-DD — Your Name: Short summary of the work done.
+```
 
 ## Package management standards
 

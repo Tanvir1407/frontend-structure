@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const Welcome = () => {
+export default function Welcome() {
   const features = [
     {
       title: "Modern Tech Stack",
@@ -137,4 +137,3 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;

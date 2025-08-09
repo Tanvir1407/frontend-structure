@@ -1,7 +1,6 @@
-import Welcome from "./pages/Welcome"
+import Welcome from "./components/pages/Welcome"
 
-function App() {
+export default function App() {
   return <Welcome />
 }
 
-export default App
