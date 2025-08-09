@@ -47,10 +47,10 @@ src/
 ├─ styles/           # Global styles and themes
 ├─ utils/            # Utility functions
 ├─ App.js            # Root component
-└─ index.js          # Entry point
+└─ main.js           # Entry point
 ```
 
-Note: This repo currently uses `src/App.jsx` and `src/main.jsx`. Adapt as needed but follow the intent above.
+Note: This repo currently uses `src/App.jsx`. Adapt as needed but follow the intent above.
 
 ## Package management standards
 
@@ -60,53 +60,12 @@ Note: This repo currently uses `src/App.jsx` and `src/main.jsx`. Adapt as needed
 	- Forms: `react-hook-form`
 	- State: `@reduxjs/toolkit`, `react-redux`
 	- Routing: `react-router-dom`
-	- Dates: `date-fns` or `dayjs` (choose one per org)
+	- Dates: `dayjs` 
 	- PDF: `jspdf` + `jspdf-autotable`
+    - Icons: `lucide`
 - Version pinning: use exact versions (e.g., `yarn add axios@1.7.4`), avoid ranges like ^ or ~ for production apps.
 - Dependency review: propose new packages via PR and standards committee approval before adoption.
 - New project template: start from this repo or a centralized template to keep versions aligned.
-
-## Documentation requirements
-
-Every project must include:
-- README covering overview, setup, structure, and key dependencies
-- Component docs:
-	- JSDoc comments or TS types
-	- Usage examples
-	- Prop validation (PropTypes) if using JS
-
-## Implementation strategy
-
-New projects:
-- Scaffold from the template
-- Use generators (e.g., Plop.js) for consistent component files
-- Add pre-commit hooks (Husky + lint-staged) to enforce lint/format/test
-
-Existing projects:
-- Create a refactor plan to align with standards
-- Document any deviations and rationale
-- Prioritize refactors when touching related modules
-
-## Governance process
-
-Frontend Standards Committee:
-- Members: senior devs + team leads
-- Cadence: monthly review
-- Scope: approve package changes and standards updates
-
-Change management:
-- Propose via RFC/PR
-- Pilot in a small project
-- Document and announce; provide training if needed
-
-## Tools to enforce standards
-
-- Shared lint/format: ESLint + Prettier configs (this repo includes `eslint.config.js`)
-- Tests: unit (Vitest) + React Testing Library encouraged
-- CI: run lint, typecheck (if TS), tests on PRs
-- Component library: shadcn/ui as the base; keep shared patterns in `components/common`
-
-## shadcn/ui usage
 
 Current config (from `components.json`):
 - Theme: `new-york`
@@ -115,13 +74,13 @@ Current config (from `components.json`):
 
 Add components (Yarn):
 ```bash
-yarn dlx shadcn@latest add button
+npx shadcn@latest add button
 ```
 Replace `button` with any component name (e.g., `alert-dialog`, `input`, `card`).
 
 Initialize shadcn in a fresh repo (if needed):
 ```bash
-yarn dlx shadcn@latest init
+npx shadcn@latest init
 ```
 
 Components live under `src/components/ui` (see alias `ui` in `components.json`).
@@ -136,59 +95,7 @@ yarn add jspdf jspdf-autotable
 ```
 
 Wrapper service example (`src/services/pdfService.js`):
-```javascript
-// src/services/pdfService.js
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
 
-const defaultOptions = {
-	orientation: 'p', // 'p' or 'l'
-	unit: 'mm',
-	format: 'a4',
-	title: 'Document',
-};
-
-export const generatePDF = (data, options = {}) => {
-	const finalOptions = { ...defaultOptions, ...options };
-	const doc = new jsPDF(finalOptions);
-
-	if (data?.title || finalOptions.title) {
-		doc.setFontSize(16);
-		doc.text(data?.title ?? finalOptions.title, 14, 16);
-	}
-
-	if (data?.table) {
-		doc.autoTable({
-			startY: 22,
-			...data.table,
-		});
-	}
-
-	return doc; // caller decides to save/print
-};
-
-// Usage example
-// const doc = generatePDF({
-//   title: 'Users',
-//   table: { head: [['Name', 'Email']], body: [['Alice', 'a@x.com']] },
-// });
-// doc.save('users.pdf');
-```
-
-Document this service as the only approved method. Refactor older code to use it when feasible.
-
-## Training & onboarding
-
-- Keep standards and examples in this README (and/or an internal handbook)
-- Onboard with a short guide + hands-on pairing
-- Run periodic workshops to refresh best practices
-
-## Benefits
-
-- Consistency: same patterns across repos
-- Efficiency: faster context switching
-- Quality: fewer conflicts and regressions
-- Scalability: easier onboarding and maintenance
 
 ## Commands cheat‑sheet (Yarn)
 
