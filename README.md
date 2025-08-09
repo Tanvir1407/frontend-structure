@@ -28,29 +28,43 @@ yarn preview
 
 ## Standard project structure
 
-Recommended folders for all projects:
+Recommended folders for projects:
 
 ```
 src/
-├─ assets/           # Static assets (images, fonts, etc.)
-├─ components/       # Reusable UI components
-│  ├─ common/        # Shared components
-│  ├─ layout/        # Layout components (Header, Footer)
-│  └─ forms/         # Form components
-├─ config/           # App configuration
-├─ hooks/            # Custom React hooks
-├─ pages/            # Page-level components
-├─ services/         # API services and integrations
-├─ store/            # Redux store setup
-│  ├─ slices/        # Redux slices
-│  └─ index.js       # Store configuration
-├─ styles/           # Global styles and themes
-├─ utils/            # Utility functions
-├─ App.js            # Root component
-└─ main.js           # Entry point
+├─ assets/                           # Static assets
+│  └─ images/                        # images store here
+├─ components/                       # Reusable UI components
+│  ├─ ui/                            # shadcn/ui generated components (alias "ui")
+│  ├─ common/                        # Shared components
+│  ├─ layout/                        # Layout components (Header, Footer)
+│  └─ forms/                         # Form components
+├─ config/                           # App configuration
+├─ hooks/                            # Custom React hooks
+├─ lib/
+│  └─ utils.js
+├─ pages/                            # Route views 
+├─ services/                         # Non-RTK services 
+├─ store/                            # Redux Toolkit setup
+│  ├─ app/
+│  │  └─ store.js                    # Store configuration
+│  ├─ features/                      # Feature-based slices
+│  │  └─ auth/
+│  │     └─ authSlice.js
+│  ├─ routes/
+│  │  └─ ProtectedRoute.js           # Auth-guarded route wrapper
+│  └─ services/                      # RTK Query APIs
+│     ├─ api.js
+│     ├─ authApi.js
+│     └─ userApi.js
+├─ styles/                           # Global styles and themes 
+├─ utils/                            # Generic utilities 
+├─ index.css                         # Global stylesheet
+├─ App.jsx                           # Root component
+└─ main.jsx                          # Entry point (Vite)
 ```
 
-Note: This repo currently uses `src/App.jsx`. Adapt as needed but follow the intent above.
+Note: This repo uses `src/main.jsx`. Adapt as needed but follow the intent above.
 
 ## Package management standards
 
@@ -114,5 +128,5 @@ yarn preview
 yarn add axios@1.7.4
 
 # add shadcn component
-yarn dlx shadcn@latest add button
+npx shadcn@latest add button
 ```
